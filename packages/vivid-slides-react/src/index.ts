@@ -1,5 +1,5 @@
 // ============================================================================
-// @vivid/slides-react - MAIN ENTRY POINT
+// @darshio/vivid - MAIN ENTRY POINT
 // ============================================================================
 // A production-grade React library for rendering AI-generated presentations
 // ============================================================================

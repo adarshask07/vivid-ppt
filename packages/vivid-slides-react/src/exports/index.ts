@@ -1,5 +1,5 @@
 /**
- * @vivid/slides-react - Export Services
+ * @darshio/vivid - Export Services
  * Built-in exporters for PDF, PPTX, PNG, and JSON formats
  */
 

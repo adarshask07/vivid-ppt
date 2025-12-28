@@ -1,7 +1,7 @@
 {
-    "name": "@vivid/slides-react",
-    "version": "0.1.0",
-    "description": "Production-grade React components for rendering AI-generated presentations with streaming support",
+    "name": "@darshio/vivid",
+    "version": "0.1.1",
+    "description": "Production-grade React components for rendering AI-generated presentations with streaming support, PPTX/PDF export, and theming",
     "type": "module",
     "main": "./dist/index.cjs",
     "module": "./dist/index.js",
@@ -14,7 +14,9 @@
         }
     },
     "files": [
-        "dist"
+        "dist",
+        "README.md",
+        "CHANGELOG.md"
     ],
     "scripts": {
         "dev": "vite build --watch",
@@ -55,16 +57,27 @@
         "streaming",
         "powerpoint",
         "llm",
-        "component-library"
+        "component-library",
+        "slide-deck",
+        "export",
+        "typescript",
+        "ai-generated",
+        "real-time"
     ],
-    "author": "",
+    "author": {
+        "name": "Adarsh Satpute",
+        "url": "https://github.com/adarshask07"
+    },
     "license": "MIT",
     "repository": {
         "type": "git",
-        "url": ""
+        "url": "https://github.com/adarshask07/vivid-ppt.git"
     },
     "bugs": {
-        "url": ""
+        "url": "https://github.com/adarshask07/vivid-ppt/issues"
     },
-    "homepage": ""
+    "homepage": "https://github.com/adarshask07/vivid-ppt/tree/main/packages/vivid-slides-react#readme",
+    "engines": {
+        "node": ">=18.0.0"
+    }
 }

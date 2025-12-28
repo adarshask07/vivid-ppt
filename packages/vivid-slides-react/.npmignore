@@ -1,0 +1,29 @@
+# Source files
+src/
+tsconfig.json
+vite.config.ts
+
+# Development
+.eslintrc*
+.prettierrc*
+.editorconfig
+*.log
+
+# Tests
+__tests__/
+*.test.ts
+*.test.tsx
+*.spec.ts
+*.spec.tsx
+coverage/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Build artifacts (keep dist)
+node_modules/
