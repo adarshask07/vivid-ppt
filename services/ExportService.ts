@@ -5,7 +5,8 @@
 
 import pptxgen from "pptxgenjs";
 import { jsPDF } from "jspdf";
-import html2canvas from "html2canvas";
+import { domToCanvas } from "modern-screenshot";
+import { exportPresentationToPdf } from "./PdfExporter";
 import type {
   Presentation,
   Slide,
@@ -814,7 +815,7 @@ function renderDividerElement(
 }
 
 // ============================================================================
-// PDF EXPORT - Using HTML2Canvas for pixel-perfect rendering
+// PDF EXPORT - Using modern-screenshot for pixel-perfect rendering
 // ============================================================================
 
 /**
@@ -858,14 +859,10 @@ export async function exportToPdf(
       // Wait for fonts and images to load
       await new Promise((resolve) => setTimeout(resolve, 100));
 
-      // Capture with high quality
-      const canvas = await html2canvas(clone, {
+      // Capture with high quality using modern-screenshot
+      const canvas = await domToCanvas(clone, {
         scale: 2,
-        useCORS: true,
-        allowTaint: true,
         backgroundColor: null,
-        logging: false,
-        imageTimeout: 15000,
         width: SLIDE_WIDTH_PX,
         height: SLIDE_HEIGHT_PX,
       });
@@ -1149,7 +1146,8 @@ export async function exportPresentation(
     if (slideElements && slideElements.length > 0) {
       await exportToPdf(presentation, slideElements, filename);
     } else {
-      await exportToPdfFromSchema(presentation, filename);
+      // Use the proper React-based PDF exporter for accurate rendering
+      await exportPresentationToPdf(presentation, filename);
     }
   }
 }

@@ -9,7 +9,9 @@ import EditorLayout from "./components/editor/EditorLayout";
 import CreatePresentationPage from "./components/CreatePresentationPage";
 import SlideDemo from "./components/SlideDemo";
 import { GenerationStudio } from "./components/GenerationStudio";
+
 import { ProjectProvider, useProjects } from "./context/ProjectContext";
+import VividPackageDemo from "./components/VividPackageDemo";
 
 const AppContent: React.FC = () => {
   const {
@@ -21,18 +23,30 @@ const AppContent: React.FC = () => {
     completeGeneration,
   } = useProjects();
   const [showDemo, setShowDemo] = useState(false);
+  const [showVividDemo, setShowVividDemo] = useState(true);
 
   // Press Ctrl+Shift+Alt+P to toggle demo mode (for development)
+  // Press Ctrl+Shift+Alt+V to toggle Vivid package demo
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "p" && e.altKey && e.ctrlKey && e.shiftKey) {
-        e.preventDefault();
-        setShowDemo((prev) => !prev);
+      if (e.altKey && e.ctrlKey && e.shiftKey) {
+        if (e.key === "p") {
+          e.preventDefault();
+          setShowDemo((prev) => !prev);
+        } else if (e.key === "v") {
+          e.preventDefault();
+          setShowVividDemo((prev) => !prev);
+        }
       }
     };
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, []);
+
+  // Show Vivid package demo (Ctrl+Shift+Alt+V)
+  if (showVividDemo) {
+    return <VividPackageDemo onBack={() => setShowVividDemo(false)} />;
+  }
 
   // Show slide demo if toggled (Ctrl+Shift+Alt+P)
   if (showDemo) {

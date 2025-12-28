@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "build:pkg": "pnpm --filter @vivid/slides-react build"
   },
   "dependencies": {
     "@google/genai": "^1.34.0",
@@ -25,18 +26,20 @@
     "@tiptap/pm": "3.14.0",
     "@tiptap/react": "3.14.0",
     "@tiptap/starter-kit": "3.14.0",
+    "@vivid/slides-react": "workspace:*",
     "clsx": "2.1.0",
     "date-fns": "3.3.1",
     "framer-motion": "10.16.4",
-    "html2canvas": "^1.4.1",
     "jspdf": "^3.0.4",
     "lucide-react": "0.344.0",
+    "modern-screenshot": "^4.6.7",
     "pptxgenjs": "^4.0.1",
     "prosemirror-model": "1.19.3",
     "prosemirror-state": "1.4.3",
     "prosemirror-view": "1.31.7",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "svg2pdf.js": "^2.6.0",
     "tailwind-merge": "2.2.1",
     "zustand": "4.5.0"
   },
